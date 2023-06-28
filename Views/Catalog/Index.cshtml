@@ -1,0 +1,13 @@
+﻿@model Catalog
+
+<h2>"Folder" - @Model.Name</h2>
+
+@if (Model.Children != null && Model.Children.Count > 0)
+{
+    <ul>
+        @foreach (var child in Model.Children)
+        {
+            <li>@Html.ActionLink(child.Name, "Index", new { id = child.Id })</li>
+        }
+    </ul>
+}

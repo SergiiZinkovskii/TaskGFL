@@ -1,0 +1,8 @@
+Id: 1, Name: Creating Digital Images, ParentId: 
+Id: 2, Name: Resources, ParentId: 1
+Id: 3, Name: Evidence, ParentId: 1
+Id: 4, Name: Graphic Products, ParentId: 1
+Id: 5, Name: Primary Sources, ParentId: 2
+Id: 6, Name: Secondary Sources, ParentId: 2
+Id: 7, Name: Process, ParentId: 4
+Id: 8, Name: Final Product, ParentId: 4
