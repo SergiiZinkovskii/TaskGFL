@@ -16,8 +16,7 @@ namespace TestGFL.Migrations
                 name: "Catalogs",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ParentId = table.Column<int>(type: "int", nullable: true)
                 },
@@ -33,14 +32,10 @@ namespace TestGFL.Migrations
 
             migrationBuilder.InsertData(
                 table: "Catalogs",
-                columns: new[] { "Id", "Name" },
-                values: new object[] { 1, "Creating Digital Images" });
-
-            migrationBuilder.InsertData(
-                table: "Catalogs",
                 columns: new[] { "Id", "Name", "ParentId" },
                 values: new object[,]
                 {
+                    { 1, "Creating Digital Images", null },
                     { 2, "Resources", 1 },
                     { 3, "Evidence", 1 },
                     { 4, "Graphic Products", 1 },

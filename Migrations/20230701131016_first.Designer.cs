@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace TestGFL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230630191109_first")]
+    [Migration("20230701131016_first")]
     partial class first
     {
         /// <inheritdoc />
@@ -27,18 +27,13 @@ namespace TestGFL.Migrations
             modelBuilder.Entity("TestGFL.Models.Catalog", b =>
                 {
                     b.Property<int?>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ParentId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.HasKey("Id");

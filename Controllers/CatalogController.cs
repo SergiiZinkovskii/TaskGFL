@@ -65,7 +65,6 @@ public class CatalogController : Controller
         }
         catch (Exception ex)
         {
-            // Обробка помилок
             return View("Error");
         }
     }
@@ -92,15 +91,16 @@ public class CatalogController : Controller
         {
             _context.Database.ExecuteSqlRaw("DELETE FROM Catalogs");
             ImportCatalogs(null, rootDirectory);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", 1);
         }
         catch (Exception ex)
         {
-            // Обробка помилок
             return View("Error");
         }
     }
 
+
+    private int _nextId = 1; 
 
     private void ImportCatalogs(int? parentId, string directoryPath)
     {
@@ -108,17 +108,21 @@ public class CatalogController : Controller
 
         foreach (string subdirectory in subdirectories)
         {
-
             string catalogName = Path.GetFileName(subdirectory);
             Catalog catalog = new Catalog
             {
+                Id = _nextId, 
                 Name = catalogName,
                 ParentId = parentId
             };
             _context.Catalogs.Add(catalog);
             _context.SaveChanges();
+
+            _nextId++; 
+
             ImportCatalogs(catalog.Id, subdirectory);
         }
     }
+
 
 }

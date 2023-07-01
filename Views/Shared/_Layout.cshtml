@@ -20,7 +20,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <button class="nav-link text-dark" @*asp-area="" asp-controller="Catalog" asp-action="ImportFromFolder"*@ onclick="showInputDialog()">Import from folder</button>
+                            <button class="nav-link text-dark"  onclick="showInputDialog()">Import from folder</button>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Catalog" asp-action="ImportFromFile">Import from file</a>
@@ -59,10 +59,9 @@
                         'Content-Type': 'application/json'
                     }
                 })
-                    //.then(response => {
-                    //    // Handle the server response if needed
-                    //    window.location.reload();
-                    //})
+                    .then(response => {
+                     window.location.reload();
+                    })
                     //.catch(error => {
                     //    // Handle the error if something goes wrong
                     //    console.error(error);
