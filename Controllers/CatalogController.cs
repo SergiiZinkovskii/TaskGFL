@@ -31,6 +31,12 @@ public class CatalogController : Controller
         }
     }
 
+    public ActionResult Error(string errorMessage)
+    {
+        var model = new ErrorViewModel { ErrorMessage = errorMessage };
+        return View("Error", model);
+    }
+
 
     public ActionResult Empty() => View();
 
@@ -85,19 +91,30 @@ public class CatalogController : Controller
 
 
     public ActionResult ImportFromFolder(string path)
-     {
+    {
         string rootDirectory = path;
         try
         {
+            if (!Directory.Exists(rootDirectory))
+            {
+                ViewBag.ErrorMessage = "Invalid folder path. Please enter a valid path.";
+                return RedirectToAction("Error", new { errorMessage = "Invalid folder path. Please enter a valid path." });
+            }
+
             _context.Database.ExecuteSqlRaw("DELETE FROM Catalogs");
             ImportCatalogs(null, rootDirectory);
-            return RedirectToAction("Index", 1);
+            return RedirectToAction("Index");
         }
         catch (Exception ex)
         {
-            return View("Error");
+            ViewBag.ErrorMessage = "An error occurred while importing from the folder.";
+            return RedirectToAction("Error", new { errorMessage = "An error occurred while importing from the folder." });
         }
     }
+
+
+
+
 
 
     private int _nextId = 1; 

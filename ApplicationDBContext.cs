@@ -13,7 +13,7 @@ public class ApplicationDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.EnableSensitiveDataLogging(); // Включити деталізоване журналювання чутливих даних
+        optionsBuilder.EnableSensitiveDataLogging(); 
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -23,7 +23,7 @@ public class ApplicationDbContext : DbContext
             .WithOne()
             .HasForeignKey(c => c.ParentId);
 
-        // Додавання базових сутностей до БД при створенні міграції
+        
         modelBuilder.Entity<Catalog>().HasData(
             new Catalog { Id = 1, Name = "Creating Digital Images", ParentId = null },
             new Catalog { Id = 2, Name = "Resources", ParentId = 1 },

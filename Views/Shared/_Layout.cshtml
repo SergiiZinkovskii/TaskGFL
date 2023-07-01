@@ -7,6 +7,33 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/TestGFL.styles.css" asp-append-version="true" />
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        function showInputDialog() {
+            var folderPath = prompt("Enter the folder path:");
+            if (folderPath) {
+                var url = '@Url.Action("ImportFromFolder", "Catalog")' + '?path=' + encodeURIComponent(folderPath);
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                    .then(response => {
+                        window.location.reload();
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            }
+        }
+
+    </script>
 </head>
 <body>
     <header>
@@ -20,7 +47,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <button class="nav-link text-dark"  onclick="showInputDialog()">Import from folder</button>
+                            <button class="nav-link text-dark" onclick="showInputDialog()">Import from folder</button>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Catalog" asp-action="ImportFromFile">Import from file</a>
@@ -34,6 +61,12 @@
         </nav>
     </header>
     <div class="container">
+        @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+        {
+            <div class="alert alert-danger" role="alert">
+                @ViewBag.ErrorMessage
+            </div>
+        }
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -44,31 +77,5 @@
             &copy; 2023 - TestGFL - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
-    <script>
-        function showInputDialog() {
-            var folderPath = prompt("Enter the folder path:");
-            if (folderPath) {
-                var url = '@Url.Action("ImportFromFolder", "Catalog")' + '?path=' + encodeURIComponent(folderPath);
-                fetch(url, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                })
-                    .then(response => {
-                     window.location.reload();
-                    })
-                    //.catch(error => {
-                    //    // Handle the error if something goes wrong
-                    //    console.error(error);
-                    //});
-            }
-        }
-
-    </script>
 </body>
 </html>
