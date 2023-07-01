@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using System.Text.Json;
 using TestGFL.Models;
 
@@ -83,11 +84,12 @@ public class CatalogController : Controller
         System.IO.File.WriteAllText("catalogs.json", json);
     }
 
-    public ActionResult ImportFromFolder()
-    {
+
+    public ActionResult ImportFromFolder(string path)
+     {
+        string rootDirectory = path;
         try
         {
-            string rootDirectory = "C:\\Users\\zsirc\\OneDrive\\Desktop\\TaskGFL";
             _context.Database.ExecuteSqlRaw("DELETE FROM Catalogs");
             ImportCatalogs(null, rootDirectory);
             return RedirectToAction("Index");

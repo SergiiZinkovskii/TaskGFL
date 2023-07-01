@@ -20,7 +20,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Catalog" asp-action="ImportFromFolder">Import from folder</a>
+                            <button class="nav-link text-dark" @*asp-area="" asp-controller="Catalog" asp-action="ImportFromFolder"*@ onclick="showInputDialog()">Import from folder</button>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Catalog" asp-action="ImportFromFile">Import from file</a>
@@ -48,5 +48,28 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        function showInputDialog() {
+            var folderPath = prompt("Enter the folder path:");
+            if (folderPath) {
+                var url = '@Url.Action("ImportFromFolder", "Catalog")' + '?path=' + encodeURIComponent(folderPath);
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                    //.then(response => {
+                    //    // Handle the server response if needed
+                    //    window.location.reload();
+                    //})
+                    //.catch(error => {
+                    //    // Handle the error if something goes wrong
+                    //    console.error(error);
+                    //});
+            }
+        }
+
+    </script>
 </body>
 </html>
