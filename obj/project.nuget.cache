@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kSUZBouK2RfRf4CyMLp0yWw3FM1fgdVDPGWvRMwQMAdCM+LaoaQzOrCYuxsFBmlSC21Td0NHFh23m6gkxMBpGA==",
+  "dgSpecHash": "enuoZ6nPWDHqO+GW4aWo0XhAFDD1BLJ0Jvf6av8kKa72p/5/fqzfS9GZ865Sn/xnoFdrioltH1pgBNQcntnkMQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\zsirc\\OneDrive\\Desktop\\TestGFL\\TestGFL\\TestGFL.csproj",
+  "projectFilePath": "C:\\Users\\zsirc\\OneDrive\\Desktop\\TaskGFL\\TaskGFL\\TestGFL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\zsirc\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\zsirc\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

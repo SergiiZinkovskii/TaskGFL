@@ -1,12 +1,15 @@
 
 
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var connection = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connection));
+    options.UseSqlServer(connection)
+        .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
+
 
 builder.Services.AddControllersWithViews();
 

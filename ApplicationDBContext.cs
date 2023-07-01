@@ -11,6 +11,11 @@ public class ApplicationDbContext : DbContext
 
     }
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.EnableSensitiveDataLogging(); // Включити деталізоване журналювання чутливих даних
+    }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Catalog>()

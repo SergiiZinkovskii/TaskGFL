@@ -23,17 +23,19 @@ namespace TestGFL.Migrations
 
             modelBuilder.Entity("TestGFL.Models.Catalog", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
 
                     b.Property<string>("Name")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ParentId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.HasKey("Id");

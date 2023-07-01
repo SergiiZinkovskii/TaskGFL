@@ -33,10 +33,14 @@ namespace TestGFL.Migrations
 
             migrationBuilder.InsertData(
                 table: "Catalogs",
+                columns: new[] { "Id", "Name" },
+                values: new object[] { 1, "Creating Digital Images" });
+
+            migrationBuilder.InsertData(
+                table: "Catalogs",
                 columns: new[] { "Id", "Name", "ParentId" },
                 values: new object[,]
                 {
-                    { 1, "Creating Digital Images", null },
                     { 2, "Resources", 1 },
                     { 3, "Evidence", 1 },
                     { 4, "Graphic Products", 1 },

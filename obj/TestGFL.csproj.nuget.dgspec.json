@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\zsirc\\OneDrive\\Desktop\\TestGFL\\TestGFL\\TestGFL.csproj": {}
+    "C:\\Users\\zsirc\\OneDrive\\Desktop\\TaskGFL\\TaskGFL\\TestGFL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\zsirc\\OneDrive\\Desktop\\TestGFL\\TestGFL\\TestGFL.csproj": {
+    "C:\\Users\\zsirc\\OneDrive\\Desktop\\TaskGFL\\TaskGFL\\TestGFL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\zsirc\\OneDrive\\Desktop\\TestGFL\\TestGFL\\TestGFL.csproj",
+        "projectUniqueName": "C:\\Users\\zsirc\\OneDrive\\Desktop\\TaskGFL\\TaskGFL\\TestGFL.csproj",
         "projectName": "TestGFL",
-        "projectPath": "C:\\Users\\zsirc\\OneDrive\\Desktop\\TestGFL\\TestGFL\\TestGFL.csproj",
+        "projectPath": "C:\\Users\\zsirc\\OneDrive\\Desktop\\TaskGFL\\TaskGFL\\TestGFL.csproj",
         "packagesPath": "C:\\Users\\zsirc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\zsirc\\OneDrive\\Desktop\\TestGFL\\TestGFL\\obj\\",
+        "outputPath": "C:\\Users\\zsirc\\OneDrive\\Desktop\\TaskGFL\\TaskGFL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
