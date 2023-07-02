@@ -1,14 +1,7 @@
 ﻿@model Catalog
 
-@{
-    var errorMessage = TempData["ErrorMessage"] as string;
-}
-
-@if (!string.IsNullOrEmpty(errorMessage))
+@if (Model != null)
 {
-    <div class="alert alert-danger">@errorMessage</div>
-}
-
 <h2>"Folder" - @Model.Name</h2>
 
 @if (Model.Children != null && Model.Children.Count > 0)
@@ -19,4 +12,5 @@
             <li>@Html.ActionLink(child.Name, "Index", new { id = child.Id })</li>
         }
     </ul>
+}
 }

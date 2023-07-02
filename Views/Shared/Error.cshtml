@@ -1,19 +1,16 @@
-﻿@model ErrorViewModel
+﻿@model TestGFL.Models.ErrorViewModel
+
 @{
     ViewData["Title"] = "Error";
-    Layout = "_Layout";
 }
 
-<h1>Error</h1>
+<h1 class="text-danger">Error</h1>
 
-<div class="alert alert-danger" role="alert">
-    @Model.ErrorMessage
-</div>
+<p>@Model.ErrorMessage</p>
 
-<form asp-action="ImportFromFolder" method="post">
-    <div class="form-group">
-        <label for="folderPath">Enter folder path:</label>
-        <input type="text" class="form-control" id="folderPath" name="path" placeholder="Folder Path" required autofocus>
-    </div>
-    <button type="submit" class="btn btn-primary">Import</button>
-</form>
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Request ID:</strong> @Model.RequestId
+    </p>
+}
